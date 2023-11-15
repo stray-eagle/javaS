@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+
+</head>
+<body>
+    <input type="number"  id="score" placeholder="Enter score" >
+    <select id="country" class="form-select" >
+        <option value="1">nigeria</option>
+        <option value="2">ghana</option>
+        <option value="3">zambia</option>
+      </select>
+    <button onclick="sayHello()" class="btn btn-warning m-3">Hello</button>
+    <br><br><br><br>
+
+    <!-- <table border="1" width="20%">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table> -->
+
+    <table height="20p" border="2px" width="20%">
+            <tr>
+              <td onclick="play1()" id="xo11"></td>
+              <td onclick="play2()" id="xo12"></td>
+              <td onclick="play3()" id="xo13"></td>
+            </tr>
+            <tr>
+              <td onclick="play4()" id="xo21"></td>
+              <td onclick="play5()" id="xo22"></td>
+              <td onclick="play6()" id="xo23"></td>
+            </tr>
+            <tr>
+              <td onclick="play7()" id="xo31"></td>
+              <td onclick="play8()" id="xo32"></td>
+              <td onclick="play9()" id="xo33"></td>
+            </tr>
+    </table>
+
+
+</body>
+<script>
+    var player = "X"
+    function change() {
+        if (player == 'X') {
+            player = 'O';   
+        } else if (player == 'O') {
+            player = 'X';  
+        }
+    }
+
+
+
+    function play1() {
+        document.getElementById("xo11").innerHTML = player
+        change();
+    }
+    function play2() {
+        document.getElementById("xo12").innerHTML = player
+        change();
+    }
+    function play3() {
+        document.getElementById("xo13").innerHTML = player
+        change();
+    }
+    function play4() {
+        document.getElementById("xo21").innerHTML = player
+        change();
+    }
+    function play5() {
+        document.getElementById("xo22").innerHTML = player
+        change();
+    }
+    function play6() {
+        document.getElementById("xo23").innerHTML = player
+        change();
+    }
+    function play7() {
+        document.getElementById("xo31").innerHTML = player
+        change();
+    }
+    function play8() {
+        document.getElementById("xo32").innerHTML = player
+        change();
+    }
+    function play9() {
+        document.getElementById("xo33").innerHTML = player
+        change();
+    }
+    function checkwinner(){
+        let vc1 = document.getElementById("xo11").innerHTML;
+        let vc2 = document.getElementById("xo12").innerHTML;
+        let vc3 = document.getElementById("xo13").innerHTML;
+        let vc4 = document.getElementById("xo21").innerHTML;
+        let vc5 = document.getElementById("xo22").innerHTML;
+        let vc6 = document.getElementById("xo23").innerHTML;
+        let vc7 = document.getElementById("xo31").innerHTML;
+        let vc8 = document.getElementById("xo32").innerHTML;
+        let vc9 = document.getElementById("xo33").innerHTML;
+
+        if ((vc1 == 'X' && vc2 == 'X' && vc3 =='X') || 
+            (vc4 == 'X' && vc5 == 'X' && vc6 =='X') || 
+            (vc7 == 'X' && vc8 == 'X' && vc9 =='X') || 
+            (vc1 == 'X' && vc4 == 'X' && vc7 =='X') || 
+            (vc2 == 'X' && vc5 == 'X' && vc8 =='X') || 
+            (vc3 == 'X' && vc6 == 'X' && vc9 =='X') || 
+            (vc1 == 'X' && vc5 == 'X' && vc9 =='X') || 
+            (vc3 == 'X' && vc5 == 'X' && vc7 =='X') ) {
+            alert("X won");
+            player = "X";
+
+            document.getElementById("xo11").innerHTML = "";
+            document.getElementById("xo12").innerHTML = "";
+            document.getElementById("xo13").innerHTML = "";
+            document.getElementById("xo21").innerHTML = "";
+            document.getElementById("xo22").innerHTML = "";
+            document.getElementById("xo23").innerHTML = "";
+            document.getElementById("xo31").innerHTML = "";
+            document.getElementById("xo32").innerHTML = "";
+            document.getElementById("xo33").innerHTML = "";
+        }else if((vc1 == 'O' && vc2 == 'O' && vc3 =='O') || 
+            (vc4 == 'O' && vc5 == 'O' && vc6 =='O') || 
+            (vc7 == 'O' && vc8 == 'O' && vc9 =='O') || 
+            (vc1 == 'O' && vc4 == 'O' && vc7 =='O') || 
+            (vc2 == 'O' && vc5 == 'O' && vc8 =='O') || 
+            (vc3 == 'O' && vc6 == 'O' && vc9 =='O') || 
+            (vc1 == 'O' && vc5 == 'O' && vc9 =='O') || 
+            (vc3 == 'O' && vc5 == 'O' && vc7 =='O') ) {
+            alert("O won");
+            player = "O";
+
+            document.getElementById("xo11").innerHTML = "";
+            document.getElementById("xo12").innerHTML = "";
+            document.getElementById("xo13").innerHTML = "";
+            document.getElementById("xo21").innerHTML = "";
+            document.getElementById("xo22").innerHTML = "";
+            document.getElementById("xo23").innerHTML = "";
+            document.getElementById("xo31").innerHTML = "";
+            document.getElementById("xo32").innerHTML = "";
+            document.getElementById("xo33").innerHTML = "";
+        }
+    }
+
+    function sayHello(){
+        var grade = document.getElementById("score").value;
+        var cnt = document.getElementById("country").value;
+
+        if(grade < 40){
+            alert("You failed this course (F)");
+        }else if(grade > 39 && grade < 45){
+            alert("You got an (E)");
+        }else if(grade > 44 && grade < 50){
+            alert("You got a (D)");
+        }else if(grade > 49 && grade < 60){
+            alert("You got a (C)");
+        }else if(grade > 59 && grade < 70){
+            alert("Keep it up, You got a (B)");
+        }else if(grade > 69){
+            alert("Excellent, You got an (A)");
+        }
+        
+
+
+    }
+</script>
+</html>
