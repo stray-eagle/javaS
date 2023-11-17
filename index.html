@@ -22,7 +22,22 @@
         <input type="number" id="yob" placeholder="Year of Birth">
         <button onclick="sayHello()">enter</button>
     </div> -->
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-5 mx-auto shadow mt-5" style="height: 80vh;" >
+                <h3>My Contact</h3>
+                <hr class="shadow">
+                <div class="row p-2">
+                    <form action="">
+                        <input class="form-control col me-1" type="text"  id="cnName" placeholder="Contact Name" required>
+                        <input class="form-control col me-1" type="number" id="cnNumber" placeholder="Phone Number" minlength="11" maxlength="11" required>
+                        <br>
+                        <button class="btn btn-secondary col" onclick="Keep()">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>    
 
  
 
@@ -50,4 +65,16 @@
     </script> -->
 
 </body>
+<script>
+
+    function Keep() {
+        let contactName = document.getElementById("cnName").value;
+        let phoneNumber = document.getElementById("cnNumber").value;
+        
+        // alert(contactName && phoneNumber)
+        let contact = {name: contactName, phone: phoneNumber};
+
+        // console.log(contact);
+    }
+</script>
 </html>
