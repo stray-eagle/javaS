@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local storage</title>
+</head>
+<body onload="getName()">
+    <h1>Local storage</h1>
+
+    <h3 id="welCome"></h3>
+
+    <input type="text" placeholder="supply name" name="" id="name">
+    <button onclick="saveName()">Save</button>
+
+    <script>
+        function saveName() {
+            let userName = document.getElementById('name').value;
+            localStorage.setItem("username", userName);
+
+            getName();
+        }
+
+        function getName() {
+            let gN = localStorage.getItem("username");
+            if (gN) {
+                document.getElementById('welCome').innerHTML = `Welcome back, ${gN}`;
+            }
+        }
+        // const saveName = () =>{
+        //     document.getElementById('userName').value;
+
+        //     alert("Hello, welcome")
+        // }
+    </script>
+</body>
+</html>

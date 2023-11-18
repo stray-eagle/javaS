@@ -21,9 +21,13 @@
                     <button class="btn btn-secondary col" onclick="Keep()">Save</button>
                 </div>
                 <hr>
-                <div class="row p-3" id="cnBox">
-                    
+                <!-- <div class="row p-3" id="cnBox"> -->
+                    <div>
+                        <input class="form-control col me-1" id="lookUp" placeholder="Search">
+                        <button class="btn btn-warning col p-2 m-3" onclick="find()">Search</button>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </div>    
@@ -49,6 +53,8 @@
         document.getElementById("cnBox").innerHTML = "";
         contactArray.map(c => {
             document.getElementById("cnBox").innerHTML += `<p class="p-2 shadow">${c.name} - ${c.phone} - ${c.mail}</p>`
+
+            localStorage.setItem("profile", JSON.stringify(contactArray))
         })
 
 
