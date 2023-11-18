@@ -14,27 +14,44 @@
                 <h3>My Contact</h3>
                 <hr class="shadow">
                 <div class="row p-2">
-                    <form action="">
-                        <input class="form-control col me-1" type="text"  id="cnName" placeholder="Contact Name" required>
-                        <input class="form-control col me-1" type="number" id="cnNumber" placeholder="Phone Number" minlength="11" maxlength="11" required>
-                        <br>
-                        <button class="btn btn-secondary col" onclick="Keep()">Save</button>
-                    </form>
+                    <input class="form-control col me-1" type="text"  id="cnName" placeholder="Contact Name" required>
+                    <input class="form-control col me-1" type="number" id="cnNumber" placeholder="Phone Number" minlength="11" maxlength="11" required>
+                    <input class="form-control col me-1" type="email"  id="cnEmail" placeholder="Contact Email" required>
+                    <br>
+                    <button class="btn btn-secondary col" onclick="Keep()">Save</button>
+                </div>
+                <hr>
+                <div class="row p-3" id="cnBox">
+                    
                 </div>
             </div>
         </div>
     </div>    
 </body>
 <script>
+    var contactArray = [];
 
     function Keep() {
         let contactName = document.getElementById("cnName").value;
         let phoneNumber = document.getElementById("cnNumber").value;
+        let email = document.getElementById("cnEmail").value;
         
         // alert(contactName && phoneNumber)
-        let contact = {name: contactName, phone: phoneNumber};
-
+        let contact = {name: contactName.toUpperCase(), phone: phoneNumber, mail:email};
         // console.log(contact);
+        // let student = [contact];
+        // console.log(student);
+
+        contactArray.push(contact);
+
+        console.log(contactArray);
+
+        document.getElementById("cnBox").innerHTML = "";
+        contactArray.map(c => {
+            document.getElementById("cnBox").innerHTML += `<p class="p-2 shadow">${c.name} - ${c.phone} - ${c.mail}</p>`
+        })
+
+
     }
 </script>
 </html>
